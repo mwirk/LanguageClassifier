@@ -1,4 +1,7 @@
-# LanguageClassifier
+# LanguageClassifier 
+(Spanish/English/German/Russian)
+
+Simple web application (Flask API) for detecting one language from the above. My model uses CNN for training language detection based on transcripted audio by Whisper. 
 
 ## 🛠️ Technologies
 
