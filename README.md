@@ -1,9 +1,10 @@
 # LanguageClassifier 
 (Spanish/English/German/Russian)
 
-Simple web application (Flask API) for detecting one language from the above. My model uses CNN for language detection based on transcripted audio by Whisper. 
+Simple web application (Flask API) for detecting one language mentioned above.
+I preprocess data by extracting mfcc from mp3 files, then Text Classification Pipeline process transcripted audio and learns how to recognize which language is it.
 
-## 🛠️ Technologies
+## 🛠️ Technologies used
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)  
 ![Flask](https://img.shields.io/badge/Flask-2.3-black?logo=flask)  
