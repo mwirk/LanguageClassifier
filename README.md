@@ -29,13 +29,7 @@ Get a language prediction in real time
 
 ### 🗂️ 1. Data Loading
 
-The `load_file_paths_and_labels()` function walks through a directory, collects paths to `.mp3` files, and infers **labels** from folder names:
-
-audio_data/
-├── english/
-│ ├── file1.mp3
-├── spanish/
-│ ├── file2.mp3
+The `load_file_paths_and_labels()` function walks through a directory, collects paths to `.mp3` files.
 
 ### 🧠 2. Speech-to-Text with Whisper
 
@@ -43,6 +37,10 @@ audio_data/
 whisper_model = whisper.load_model("base")
 result = whisper_model.transcribe(path)
 ```
+Loads the Whisper model (base size) from OpenAI, a pre-trained speech-to-text model.
+For each audio file, it transcribes speech into text.
+
+
 ## 🧪 3. Preprocessing
 
 - **MFCC features** are extracted from audio files during preprocessing. These features capture the short-term power spectrum of sound and are widely used in speech and audio recognition tasks.
@@ -57,7 +55,7 @@ After transcription and preprocessing:
 ```python
 X_train, X_test, y_train, y_test = train_test_split(texts, labels, test_size=0.2)
 ``` 
-
+Texts (X) and labels (y) are split into training and test sets.
 
 A simple pipeline is defined using TF-IDF and Logistic Regression:
 ```python
@@ -71,14 +69,6 @@ LogisticRegression: A simple linear classifier that predicts the language label.
 
 ## Pipeline Summary
 
-Audio (.mp3)
-   ↓
-Whisper (Speech-to-Text)
-   ↓
-Text
-   ↓
-TF-IDF Vectorization
-   ↓
-Logistic Regression (Classification)
-   ↓
-Language Prediction (Spanish/English/German/Russian)
+Audio → Text (via Whisper) → TF-IDF → Logistic Regression
+
+
