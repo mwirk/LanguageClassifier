@@ -3,12 +3,8 @@ Detect spoken language from audio (Spanish 🇪🇸 / English 🇬🇧 / German 
 
 This project uses [OpenAI Whisper](https://github.com/openai/whisper) to transcribe `.mp3` audio files and a classical machine learning pipeline to classify the **spoken language** based on the **transcription**. It includes a simple **Flask web interface** where users can upload audio files and receive a prediction.
 
-Web Interface (Flask)
+A minimal Flask API allows users to upload .mp3 audio and get a language prediction in real time.
 
-A minimal Flask API allows users to:
-
-Upload .mp3 audio
-Get a language prediction in real time
 
 
 ---
@@ -68,4 +64,26 @@ LogisticRegression: A simple linear classifier that predicts the language label.
 
 Audio → Text (via Whisper) → TF-IDF → Logistic Regression
 
+After that, model is ready to classify language by audio. 
+
+Below we can see function which is called in Flask api to detect what language we can hear in the speech.
+```python
+def classify(file):
+    whisper_model = whisper.load_model("base")
+    
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp:
+        file.save(tmp.name)
+        result = whisper_model.transcribe(tmp.name)
+
+    text = result["text"].strip()
+    if not text:
+        return "Audio was too unclear to transcribe."
+
+    clf = joblib.load("text_lang_classifier.pkl")
+    predicted_language = clf.predict([text])[0]
+
+    return f"Predicted language: {predicted_language}\nTranscription: {text}"
+
+```
 
