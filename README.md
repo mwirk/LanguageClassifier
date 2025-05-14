@@ -11,9 +11,6 @@ Upload .mp3 audio
 Get a language prediction in real time
 
 
-
-> 💡 A lightweight and interpretable solution for speech-based language classification.
-
 ---
 
 ## 🛠️ Technologies Used
