@@ -36,8 +36,9 @@ For each audio file, it transcribes speech into text.
 
 ## 🧪 3. Preprocessing
 
-- **MFCC features** are extracted from audio files during preprocessing. These features capture the short-term power spectrum of sound and are widely used in speech and audio recognition tasks.
-- Transcribed text from the Whisper model is also collected for each audio file to be used in the classification step.
+Audio is transcribed into text using Whisper.
+
+Transcribed text is then vectorized using TF-IDF for classification.
 
 ---
 
@@ -60,7 +61,19 @@ pipeline = Pipeline([
 TfidfVectorizer: Converts text to numerical vectors using term frequency-inverse document frequency.
 LogisticRegression: A simple linear classifier that predicts the language label.
 
+TF (Term Frequency) - How often a word appears.
+
+IDF (Inverse Document Frequency) - How rare a word is across all documents.
+Words that are common in one file but rare in others get higher scores, making them more useful for classification.
+
+Logistic Regression uses linear model to calculate the probability that a given input (vectorized text) belongs to a specific class (e.g., English, Spanish). It does this by learning weights for each word feature during training.
+It's called “logistic” because it uses the sigmoid function to map values between 0 and 1 (probabilities).
+
+
+TF-IDF + Logistic Regression is fast, interpretable, and needs less data than deep learning models.
+
 ## Pipeline Summary
+
 
 Audio → Text (via Whisper) → TF-IDF → Logistic Regression
 
