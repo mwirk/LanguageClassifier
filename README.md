@@ -99,4 +99,22 @@ def classify(file):
     return f"Predicted language: {predicted_language}\nTranscription: {text}"
 
 ```
+## Sources:
 
+https://valohai.com/machine-learning-pipeline/
+
+https://www.geeksforgeeks.org/preprocessing-the-audio-dataset/
+
+https://www.jeremymorgan.com/tutorials/generative-ai/how-to-transcribe-audio/
+
+https://openai.com/index/whisper/
+
+https://platform.openai.com/docs/models/whisper
+
+https://bamblebam.medium.com/audio-classification-and-regression-using-pytorch-48db77b3a5ec
+
+https://medium.com/@alexrodriguesj/creating-an-audio-transcription-and-summarization-with-openais-whisper-and-python-860b41dfac8c
+
+https://medium.com/@piyushkashyap045/power-of-modern-language-models-for-text-classification-69b6ff5705bd
+
+https://gofore.com/en/how-to-classify-text-in-100-languages-with-a-single-nlp-model/
