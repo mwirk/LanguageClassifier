@@ -1,5 +1,5 @@
 # 🌍 LanguageClassifier  
-Detect spoken language from audio (Spanish 🇪🇸 / English 🇬🇧 / German 🇩🇪 / Russian 🇷🇺)
+Language detector from speech (Spanish 🇪🇸 / English 🇬🇧 / German 🇩🇪 / Russian 🇷🇺)
 
 This project uses [OpenAI Whisper](https://github.com/openai/whisper) to transcribe `.mp3` audio files and a classical machine learning pipeline to classify the **spoken language** based on the **transcription**. It includes a simple **Flask web interface** where users can upload audio files and receive a prediction.
 
