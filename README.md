@@ -81,6 +81,7 @@ After that, model is ready to classify language by audio.
 
 Below we can see function which is called in Flask api to detect what language we can hear in the speech.
 ```python
+
 def classify(file):
     whisper_model = whisper.load_model("base")
     
@@ -99,6 +100,14 @@ def classify(file):
     return f"Predicted language: {predicted_language}\nTranscription: {text}"
 
 ```
+## Dose of experimentation:
+
+What I tried first was CNN model with this kind of preprocessing: I tried to extract MFCC features from mp3 files into a vector and based on them classify the language.
+This approach wasn't really successfull, mp3 files was tricky to get valuable informations and only basing on them recognise the language, second thing is that CNN appeared too complicated 
+and not efficient for this job. It would be much better with wav files, but they are also much more expensive in memory so I decided to stay with the mp3 format and try with another approach which
+was classic machine learning with pipeline.
+
+
 ## Sources:
 
 https://valohai.com/machine-learning-pipeline/
